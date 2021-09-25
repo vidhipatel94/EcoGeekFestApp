@@ -1,0 +1,2 @@
+rootProject.name = "EcoGeekFestApp"
+include ':app'
