@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EcoGeekFestApp</string>
+    <string name="app_name">Eco Geek Fest App</string>
 
     <string name="welcome_to_eco_geek">Welcome to Eco Geek!</string>
     <string name="let_find">Let\'s find types of crop you can grow in your backyard</string>
@@ -12,4 +12,5 @@
     <string name="invalid_ph_value">pH value should be between 0 and 14.</string>
     <string name="result_title">Accrording to the the temperature, humidity, rain and pH value of soil, you can grow this plant:</string>
     <string name="no_plant">Sorry, we are didn\'t find any result.</string>
+    <string name="title_select_soil_type">Select soil type</string>
 </resources>

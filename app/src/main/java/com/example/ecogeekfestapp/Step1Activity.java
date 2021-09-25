@@ -8,7 +8,10 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,7 +28,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Step1Activity extends AppCompatActivity {
+public class Step1Activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private LocationManager locationManager;
     private double lat;
@@ -34,19 +37,9 @@ public class Step1Activity extends AppCompatActivity {
     private float temp;
     private float humidity;
 
-//    private final LocationListener mLocationListener = new LocationListener() {
-//        @Override
-//        public void onLocationChanged(final Location location) {
-//            //your code here
-//            Log.d("--------", "onLocationChanged: "+location.toString());
-//            Log.d("----", "onLocationChanged: "+location.getLatitude());
-//            Log.d("-----", "onLocationChanged: "+location.getLongitude());
-//
-//
-//        }
-//    };
-
     private EditText phValueEditText;
+
+    private static final String[] SOIL_TYPES = { "Black", "Cinder", "Laterite", "Peat", "Yellow" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +49,13 @@ public class Step1Activity extends AppCompatActivity {
         getLocationPermission();
 
         phValueEditText = findViewById(R.id.phValue);
+
+        Spinner soilTypeSp = findViewById(R.id.soilTypeSpinner);
+        soilTypeSp.setOnItemSelectedListener(this);
+
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, SOIL_TYPES);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        soilTypeSp.setAdapter(adapter);
 
         findViewById(R.id.btnNext).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,9 +94,6 @@ public class Step1Activity extends AppCompatActivity {
                 getLocation();
             }
         }
-//        else {
-//            Log.d("-------", "getLocationPermission: not found");
-//        }
     }
 
     private void getLocation() {
@@ -118,21 +115,19 @@ public class Step1Activity extends AppCompatActivity {
             lat = location.getLatitude();
             lng = location.getLongitude();
         }
-//        else {
-//        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 60 * 1000,
-//                100f, mLocationListener);
     }
 
-//    private void getLocation() {
-//            location = locationManager
-//                    .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-//
-//            if (location != null) {
-//                latitude = location.getLatitude();
-//                longitude = location.getLongitude();
-//            }
-//        }
-//    }
+    private int soilType = 0;
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        soilType = position;
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 
     private void onClickNext() {
         phValue = getPhValue();
@@ -195,7 +190,7 @@ public class Step1Activity extends AppCompatActivity {
                                 }
                             }
                         }
-                        callAPItoGetPlantSuggestions(phValue, rain, temp, humidity);
+                        callAPItoGetPlantSuggestions(phValue, rain, temp, humidity, soilType);
                     }
 
                     @Override
@@ -208,8 +203,8 @@ public class Step1Activity extends AppCompatActivity {
                 });
     }
 
-    private void callAPItoGetPlantSuggestions(double phValue, double rain, double temp, double humidity) {
-        Log.d("------", "callAPItoGetPlantSuggestions() called with: phValue = [" + phValue + "], rain = [" + rain + "], temp = [" + temp + "], humidity = [" + humidity + "]");
+    private void callAPItoGetPlantSuggestions(double phValue, double rain, double temp, double humidity, int soilType) {
+        Log.d("-----", "callAPItoGetPlantSuggestions() called with: phValue = [" + phValue + "], rain = [" + rain + "], temp = [" + temp + "], humidity = [" + humidity + "], soilType = [" + soilType + "]");
 
         startActivity(ResultActivity.createIntent(this, "Spinach"));
     }

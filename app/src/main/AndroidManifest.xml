@@ -22,7 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Step1Activity" />
+        <activity
+            android:name=".Step1Activity"
+            android:windowSoftInputMode="stateVisible" />
         <activity android:name=".ResultActivity" />
     </application>
 

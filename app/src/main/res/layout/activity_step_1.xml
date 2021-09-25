@@ -5,17 +5,10 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/app_name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
-
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.2" />
+        android:layout_weight="0.8" />
 
     <TextView
         android:layout_width="match_parent"
@@ -33,7 +26,20 @@
         android:id="@+id/phValue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:imeOptions="actionDone"
         android:inputType="numberDecimal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/title_select_soil_type"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+    <Spinner
+        android:id="@+id/soilTypeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Space
         android:layout_width="match_parent"
