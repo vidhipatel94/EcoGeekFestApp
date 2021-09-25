@@ -210,5 +210,7 @@ public class Step1Activity extends AppCompatActivity {
 
     private void callAPItoGetPlantSuggestions(double phValue, double rain, double temp, double humidity) {
         Log.d("------", "callAPItoGetPlantSuggestions() called with: phValue = [" + phValue + "], rain = [" + rain + "], temp = [" + temp + "], humidity = [" + humidity + "]");
+
+        startActivity(ResultActivity.createIntent(this, "Spinach"));
     }
 }

@@ -10,4 +10,6 @@
     <string name="msg_soil_ph_value">Soil\'s pH value is required to give you suggestions which crops are suitable for gardening.</string>
     <string name="get_started">Get Started</string>
     <string name="invalid_ph_value">pH value should be between 0 and 14.</string>
+    <string name="result_title">Accrording to the the temperature, humidity, rain and pH value of soil, you can grow this plant:</string>
+    <string name="no_plant">Sorry, we are didn\'t find any result.</string>
 </resources>
