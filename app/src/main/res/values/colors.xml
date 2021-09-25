@@ -8,10 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="color_primary">#FF6200EE</color>
-    <color name="color_primary_light">#FFBB86FC</color>
-    <color name="color_primary_dark">#FF3700B3</color>
+    <color name="color_primary">#FF018786</color>
+    <color name="color_primary_light">#FF018786</color>
+    <color name="color_primary_dark">#FF018786</color>
 
-    <color name="color_accent">#FF018786</color>
-    <color name="color_accent_dark">#FF018786</color>
+    <color name="color_accent">#FF6200EE</color>
+    <color name="color_accent_dark">#FF3700B3</color>
 </resources>
