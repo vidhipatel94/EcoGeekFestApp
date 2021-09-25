@@ -8,8 +8,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/title_step1"
         android:layout_marginTop="10dp"
+        android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
     <Space
@@ -20,20 +20,20 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/title_your_location"
-        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
-
-    <EditText
-        android:id="@+id/locationValue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Waterloo, ON" />
+        android:text="@string/msg_soil_ph_value" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/msg_not_correct_location" />
+        android:layout_marginTop="24dp"
+        android:text="@string/title_enter_soil_ph_value"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+    <EditText
+        android:id="@+id/phValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
 
     <Space
         android:layout_width="match_parent"
@@ -41,6 +41,7 @@
         android:layout_weight="1" />
 
     <Button
+        android:id="@+id/btnNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"

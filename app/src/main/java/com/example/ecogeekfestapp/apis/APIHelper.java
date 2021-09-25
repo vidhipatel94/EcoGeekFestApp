@@ -13,4 +13,13 @@ public class APIHelper {
 
         return retrofit.create(WeatherAPIs.class);
     }
+    public static WeatherAPIs getRainDataAPI() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://climatedataapi.worldbank.org/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        return retrofit.create(WeatherAPIs.class);
+    }
+
 }
